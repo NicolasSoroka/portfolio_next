@@ -1,0 +1,6 @@
+use of Clerk (de la gente de next tambien)
+https://clerk.com/
+
+https://clerk.com/docs/quickstarts/nextjs
+
+https://dashboard.clerk.com/apps/app_2WGyctRPIXVFFwPm1rABrS9qWyS/instances/ins_2WGycqrXb35FhLAm28oWHYZNZ7i?

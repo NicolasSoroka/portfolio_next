@@ -1,0 +1,14 @@
+const { sign } = require("crypto")
+
+si la carpeta va ente parentesis, eso agrupa los subsiguientes folders
+(auth)
+  sign-in
+  sign-up
+
+ruta de resultado: /sign-in o /sign-up
+
+si hay un layout por grupo, aplica ese
+Ojo con eso, cada pagina que se cargue va a pasar por el layout, 
+por ende si no esta definido { children }, vamos a tener 
+un error. 
+

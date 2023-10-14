@@ -1,0 +1,40 @@
+revisar el archivo layout dentro de app
+
+import { Inter, Space_Grotesk } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter",
+});
+
+
+fijate que al importar las fuentes de next/font/google simplemente resta
+traer los pesos, nombre a la fuente y luego pegarla en el "contexto"
+
+<body className={`${inter.variable} ${spaceGrotesk.variable}`}>
+
+"variable" deontro de la fuente viene a ser la clase que pegamos en el body
+de esta manera toda la pagina va a tener por default esa fuente, falopa pero asi funciona.
+Aun no vi como usarla puntualmente en algun lugar, si es que ya lo seteo
+previamente desde el tailwind,.config.ts o puedo agregar auna clase 
+la font y va a andar (siempre y cuando este ahi pouesto en su "context")
+
+
+bueno en efecto, en tailwind.config.ts 
+ fontFamily: {
+        inter: ["var(--font-inter)"],
+        spaceGrotesk: ["var(--font-spaceGrotesk)"],
+      },
+
+
+      figura eso, las dos variables
+    
+
+y en globals.css (que tambien lo importe al archivo obviamente)
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+por lo que, al ahora estar disponible, le aplica al body la font-family "Inter"

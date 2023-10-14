@@ -1,0 +1,32 @@
+component level render
+when to client or server side render a component
+
+
+if the component requires some interaction from the user,
+ -click a buton
+ trigger some event,
+ enter info un some inputs or use any hook,
+ that's a client side for sure,
+
+4 the contrary, if do some fetch of data or dsplay static
+data (also, do some calc) now we're talking of SSC
+
+check en la pagina de NEXT, hay una tabla para guiarnos 
+y asi saber si renderizar server o no.
+
+Resumido, si el componente requiere interactividad, seguramente sea 
+client side render.
+
+
+TODOS LOS COMPONENTES SON TRATADOS COMO SERVER SIDE a menos que 
+se especifique lo contrario
+
+Como? con "use client" al comienzo del archivo.
+
+
+!!NOTA
+no incluir componentes SERVER dentro de un componente client
+porque se renderizara 2 veces, una en el server y otra en el client
+y un par de cosas mas de enxt que no entendi, moraleja no hacerlo.
+
+

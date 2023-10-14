@@ -1,0 +1,64 @@
+COSAS DE NEXT
+
+next ofrece 2 runtimes
+
+node.js runtimes, donde obviamente se ejecuta node
+EDGE runtime, lightweitgh runtime basado en WEB APIS con soporte 
+a un numero limitado de apis de node
+
+next nos permite elegir cual queremos usar:
+
+export const runtime = 'edge' // 'nodejs'
+
+
+y cual es el chiste de cambiar de runtime ?
+al ser un runtime limitado, mucho mas liviano, sirve para entregar 
+productos mas agiles/rapidos. 
+Tener en cuenta las propias limitaciones de no ser un runtime completo. 
+
+Ver alcance antes de decidir si usarlo o no.
+
+
+
+Static Site Generation : SSG  ---- el comportamiento default de next ----
+build time
+el contenido es generado y convertido a HTML, CSS y JS
+no requiere intervencion del servidor.
+el contenido generado puede ser hosteado y entregado por una children
+velocidad pura (contenido cacheado) y minima carga del servidor
+
+- CONS
+Requiere un reprocesado de todo el buildeo (TOOODO el sitio) ante cualqueir cambio, una paja.
+
+
+Incremental Static Generation : ISG - high performance approach
+Nos permite updatear las paginas estaticas peeeero luego del buildeo sin necesidad
+de hacerlo con tooooodo el sitio.
+Esto nos permite añadir partes del sitio on-demand. 
+con este approach, ante una modificacion podemos corregir o crear nuevo contenido sin comprometer la performance
+
+
+
+Server Side Rendering : SSR  - el prodigo
+used for :
+  situaciones donde el sitio dependa fuertemente de la interaccion con el cliente
+  why ? cause requiera real-time updates.
+
+  ejemplos:
+    authentication, real-time collaborative apps (chats, video streaming services)
+
+La pregunta es para que lo queremos teniendo las otras estrategias
+
+SSR es referirnos a una gran carga de procesamiento del lado del servidor,
+entregando info por cada request individual, generando el html necesario y entregandolo junto con el codigo JS y su correspondiente interactividad.
+
+
+
+la gran pregunta, cual usar en cada caso??
+      el easy path
+
+  el contenido de la pagina cambia? 
+    Si no cambia, SSG (lo devuelto por el build)
+  Si cambia, lo hace seguido? (potencialmente cada segundo?)
+    SSR de cabeza
+  Si no cambia seguido, ISG

@@ -1,0 +1,45 @@
+Aca la cosa se complica, 
+
+"use client";
+para empezar, como estamos creando un contexto y este no existe en el server, usamos "use client"
+
+luego creamos el ThemeContext, nuestro contexto quien va a servir de las cosas que necesitemos
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+
+Crea la funcion provider, ThemeProvider
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [mode, setMode] = useState("");
+  aca guarda "light" o "dark"
+
+  const handleThemeChange = () => {
+    if mode blabla setMode()
+  };
+
+
+y aca viene la joya, lo que entrega es el mode y setMode como informacion servida por el
+ThemeContext
+  return (
+    <ThemeContext.Provider value={{ mode, setMode }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+
+export function useTheme() {
+  const context = useContext(ThemeContext);
+
+  if (context === undefined) {
+    throw new Error("useTheme must be used within a ThemeProvider");
+  }
+
+  return context;
+}
+
+
+ThemeProvider  ==> al llamar a esta funcion, envuelvo el children en el contexto y...
+  ThemeContext
+    children ==> ...le habilito esto {{ mode, setMode }}
+  ThemeContext
+
+  useTheme ==> esto es un pro tip, de esta manera checkeo que exista y llamo al context (ThemeContext)
+para poder desestructurar mode, setMode etc
