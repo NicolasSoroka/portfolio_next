@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 
-import "../styles/theme.css";
+import "./globals.css"
 import { inter } from "./fonts";
 
 import Navbar from "@/components/Navbar";
