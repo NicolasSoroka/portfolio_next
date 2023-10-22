@@ -5,14 +5,15 @@ import Theme from "./Theme";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between px-2 pt-2">
+    <nav className="flex justify-between items-center p-3 ">
       <Link href="/" className="flex items-center gap-1">
-        <Image
-          src="/assets/images/site-logo.svg"
+        {/* <Image
+          src="/assets/images/logo.svg"
           width={23}
           height={23}
-          alt="DevFlow"
-        />
+          alt="logo"
+        /> */}
+        <h3>Nicolas Soroka</h3>
       </Link>
       <Theme />
     </nav>

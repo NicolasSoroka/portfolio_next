@@ -8,8 +8,8 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="flex items-center justify-center gap-4 border py-4">
-      <p>Nicolas Soroka</p>
+    <footer className="flex items-center justify-center gap-4 border py-4 mt-auto">
+      <p>Inspired by Vercel UI</p>
       <p>{year}</p>
       <div className="flex gap-3">
         {socialMediaLinks.map((link) => (
