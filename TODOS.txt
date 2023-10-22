@@ -1,0 +1,20 @@
+  floating bar
+  nav
+  download cv
+  hero
+  form contacto
+  barra de tecnologias
+  boton de contacto flotante
+  footer
+  work exp con timeline
+  carrousel de proyectos
+
+
+
+  crear variables de colores en tailwind
+
+
+  footer{ 
+    año actual
+    redes sociales
+  }
