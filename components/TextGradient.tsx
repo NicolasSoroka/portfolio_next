@@ -1,26 +1,30 @@
-import React from 'react'
+import React from "react";
 
 type TextGradientProps = {
-  text: string[]
-  from?: string
-  via?: string
-  to?: string
-}
+  text: string[];
+  from?: string;
+  via?: string;
+  to?: string;
+};
 
-export const TextGradient:React.FC<TextGradientProps> = ({ text, from = 'from-orange-700', via='via-blue-500', to='to-green-400'}) => {
-
+export const TextGradient: React.FC<TextGradientProps> = ({
+  text,
+  from = "from-orange-700",
+  via = "via-blue-500",
+  to = "to-green-400",
+}) => {
   return (
     <>
       {text.map((textItem, index) => (
         <span
           key={index}
-          className={`bg-gradient-to-r ${from} ${via} ${to} text-transparent bg-clip-text bg-300% animate-gradient`}
+          className={`bg-gradient-to-r ${from} ${via} ${to} animate-gradient bg-300% bg-clip-text text-transparent`}
         >
           {textItem}
         </span>
       ))}
     </>
-  )
-}
+  );
+};
 
-export default TextGradient
+export default TextGradient;

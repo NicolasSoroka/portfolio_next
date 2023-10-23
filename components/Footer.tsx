@@ -8,7 +8,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="flex items-center justify-center gap-4 border py-4 mt-auto">
+    <footer className="mt-auto flex items-center justify-center gap-4 border py-4">
       <p>Inspired by Vercel UI</p>
       <p>{year}</p>
       <div className="flex gap-3">
