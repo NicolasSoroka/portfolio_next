@@ -13,7 +13,7 @@ const Navbar = () => {
           height={23}
           alt="logo"
         /> */}
-        <h3>Nicolas Soroka</h3>
+        <h3 className="font-bold text-lg">N. Soroka</h3>
       </Link>
       <Theme />
     </nav>
