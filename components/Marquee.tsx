@@ -7,19 +7,31 @@ type MarqueeProps = {
 
 const Marquee: FC<MarqueeProps> = ({ images }) => {
   return (
-    <div className="w-full">
-      <div className="relative m-auto h-[100px] w-auto overflow-hidden">
-        <ul className="flex w-[calc(250px*7)] animate-scroll">
-          {images.map((image) => (
-            <li
-              className="flex h-[100px] w-[100px] items-center justify-center"
-              key={image}
-            >
-              <Image src={image} width={60} height={60} alt={`${image}`} />
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className="relative flex flex-col overflow-x-hidden w-100 [mask-image:linear-gradient(to_right,_transparent_0%,_black_10%,_black_90%,_transparent_100%)]">
+      <ul className="flex animate-marquee items-center justify-center whitespace-nowrap py-12">
+        {images.map((image) => (
+          <li key={image}>
+            <Image
+              className={`${
+                image === "/assets/marquee/vercel_icon_dark.png" &&
+                "dark:invert"
+              }`}
+              src={image}
+              width={60}
+              height={60}
+              alt={`${image}`}
+            />
+          </li>
+        ))}
+      </ul>
+
+      <ul className="absolute top-0 flex animate-marquee2 items-center justify-center whitespace-nowrap py-12">
+        {images.map((image) => (
+          <li key={image}>
+            <Image src={image} width={60} height={60} alt={`${image}`} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
