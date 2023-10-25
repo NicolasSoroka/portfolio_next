@@ -10,10 +10,10 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Nicolas Soroka - Web Developer",
-  description: "description: Nicolas Soroka web developer portfolio website.",
-  icons: {
-    icon: "/assets/images/site-logo.svg",
-  },
+  description: "description: Nicolas Soroka personal website.",
+  // icons: {
+  //   icon: "/assets/images/site-logo.svg",
+  // },
 };
 
 export default function RootLayout({
@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex flex-col min-h-screen`}>
+      <body className={`${inter.className} flex min-h-screen flex-col`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

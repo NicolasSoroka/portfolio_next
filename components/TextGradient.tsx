@@ -38,6 +38,9 @@ export const TextGradient: React.FC<TextGradientProps> = ({
               ? `bg-gradient-to-r ${from} ${via} ${to} animate-gradient bg-300% bg-clip-text text-transparent`
               : "text-slate-700"
           } ${className}`}
+
+          // en lugar de renegar con un background, cambia la opacity y agrega el
+          // bg gradiend de fondo fijo, como vercel.
         >
           {textItem}
         </span>

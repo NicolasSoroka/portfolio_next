@@ -2,10 +2,12 @@
   nav
   download cv
   hero
+    - imagenes ?
   form contacto
-  barra de tecnologias
+  barra de tecnologias - marquee
+    - fix
   boton de contacto flotante
-  footer
+  
   work exp con timeline
   carrousel de proyectos
 
@@ -14,7 +16,78 @@
   crear variables de colores en tailwind
 
 
-  footer{ 
-    año actual
-    redes sociales
-  }
+
+
+
+
+
+Marquee.tsx
+import { useState, useEffect, FC } from 'react';
+import useElementSize from '../../utilities/hooks/useElementSize';
+import MarqueeItem from '../MarqueeItem/MarqueeItem';
+import styles from './Marquee.module.css';
+import { fakeTickersList, ITick } from './models';
+
+interface IMarqueeProps {
+	items?: ITick[];
+	stopAnimation?: boolean;
+}
+
+const Marquee: FC<IMarqueeProps> = ({
+	items = fakeTickersList,
+	stopAnimation,
+}) => {
+	const [showDuplicatedList, setShowDuplicatedList] = useState(false);
+
+	const [listWrapperRef, { width: listWrapperWidth }] = useElementSize();
+	const [marqueeContentRef, { width: marqueeContentWidth }] = useElementSize();
+
+	useEffect(() => {
+		if (listWrapperWidth && marqueeContentWidth) {
+			if (listWrapperWidth <= marqueeContentWidth) {
+				setShowDuplicatedList(false);
+			} else if (listWrapperWidth > marqueeContentWidth) {
+				setShowDuplicatedList(true);
+			}
+		}
+	}, [items, listWrapperWidth, marqueeContentWidth]);
+
+	const itemsList = items?.map((item) => <MarqueeItem {...item} />);
+
+	return (
+		<div className={styles.Marquee}>
+			<div
+				ref={marqueeContentRef}
+				style={{ overflow: stopAnimation ? 'auto' : 'hidden' }}
+			>
+				<div
+					ref={listWrapperRef}
+					style={{
+						gridTemplateColumns: `repeat(${items?.length}, auto)`,
+						animation:
+							showDuplicatedList && !stopAnimation
+								? `${styles.marqueeAnimation} ${
+										listWrapperWidth / 40
+								  }s infinite linear`
+								: 'unset',
+					}}
+				>
+					{itemsList}
+				</div>
+				{showDuplicatedList && !stopAnimation && (
+					<div
+						style={{
+							gridTemplateColumns: `repeat(${items.length}, auto)`,
+							animation: `${styles.marqueeAnimation} ${
+								listWrapperWidth / 40
+							}s infinite linear`,
+						}}
+					>
+						{itemsList}
+					</div>
+				)}
+			</div>
+		</div>
+	);
+};
+

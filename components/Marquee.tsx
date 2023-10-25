@@ -1,13 +1,14 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import Image from "next/image";
 
 type MarqueeProps = {
   images: string[];
+  stopAnimation?: boolean;
 };
 
 const Marquee: FC<MarqueeProps> = ({ images }) => {
   return (
-    <div className="relative flex flex-col overflow-x-hidden w-100 [mask-image:linear-gradient(to_right,_transparent_0%,_black_10%,_black_90%,_transparent_100%)]">
+    <div className="w-100 relative flex flex-col overflow-x-hidden [mask-image:linear-gradient(to_right,_transparent_0%,_black_10%,_black_90%,_transparent_100%)]">
       <ul className="flex animate-marquee items-center justify-center whitespace-nowrap py-12">
         {images.map((image) => (
           <li key={image}>
