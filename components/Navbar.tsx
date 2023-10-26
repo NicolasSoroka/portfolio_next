@@ -5,7 +5,7 @@ import Theme from "./Theme";
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between p-3 ">
+    <nav className="flex items-center justify-between p-3">
       <Link href="/" className="flex items-center gap-1">
         {/* <Image
           src="/assets/images/logo.svg"
