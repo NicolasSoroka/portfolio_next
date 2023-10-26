@@ -17,10 +17,10 @@ const Hero = () => {
       </div>
 
       <div className="flex flex-col gap-y-6 px-5 text-center text-base text-zinc-600">
-        <p className="text-xl font-medium">
+        <p className="text-xl font-medium dark:text-slate-200">
           Hi there! <span className="text-2xl">👋</span>
         </p>
-        <p className="text-lg font-medium">
+        <p className="text-lg font-medium dark:text-slate-200">
           I&apos;m <span className="text-lg font-bold">Nicolas</span>, a
           frontend developer from Argentina who loves to work with React and
           Next.js

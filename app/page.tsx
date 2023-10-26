@@ -8,7 +8,7 @@ const page = () => {
   return <main className="flex flex-col">
     <Hero/>
     <Marquee images={marqueeImages}/>
-    <Divider/>
+    <Divider section='Works' number='1' title='Build when inspiration strikes' description='Free developers from time-consuming, unnecessary processes that slow your work, so you and your team can focus on creating.'/>
   </main>;
 };
 

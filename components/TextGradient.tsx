@@ -36,7 +36,7 @@ export const TextGradient: React.FC<TextGradientProps> = ({
           className={`${
             index === currentIndex
               ? `bg-gradient-to-r ${from} ${via} ${to} animate-gradient bg-300% bg-clip-text text-transparent`
-              : "text-slate-700"
+              : "text-slate-700 dark:text-slate-300"
           } ${className}`}
 
           // en lugar de renegar con un background, cambia la opacity y agrega el
