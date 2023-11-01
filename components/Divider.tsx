@@ -31,15 +31,15 @@ const Divider: FC<DividerProps> = ({
           {number}
         </span>
         <h3
-          className={`mt-5 font-extrabold text-3xl bg-gradient-to-r ${from} ${to} text-transparent bg-clip-text`}
+          className={`mt-5 bg-gradient-to-r text-3xl font-extrabold ${from} ${to} bg-clip-text text-transparent`}
         >
           {section}
         </h3>
       </div>
-      <h4 className="font-bold text-4xl max-w-xs dark:text-slate-200 my-4">
+      <h4 className="my-4 max-w-xs text-4xl font-bold dark:text-slate-200">
         {title}
       </h4>
-      <p className="font-light text-lg max-w-[300px] dark:text-slate-400 leading-relaxed">
+      <p className="max-w-[300px] text-lg font-light leading-relaxed dark:text-slate-400">
         {description}
       </p>
     </div>

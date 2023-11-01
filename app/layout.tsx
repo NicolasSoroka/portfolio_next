@@ -1,9 +1,10 @@
 import React from "react";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
+import { GeistSans } from "geist/font";
 
-import "./globals.css"
-import { inter } from "./fonts";
+import "./globals.css";
+// import { inter } from "./fonts";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -23,7 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex min-h-screen flex-col`}>
+      <body
+        className={`${GeistSans.className} flex min-h-screen flex-col antialiased`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
