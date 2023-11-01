@@ -24,9 +24,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${GeistSans.className} flex min-h-screen flex-col antialiased`}
-      >
+      <body className={`${GeistSans.className} flex h-[100svh] flex-col`}>
+      {/* -webkit-fill-available; */}
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

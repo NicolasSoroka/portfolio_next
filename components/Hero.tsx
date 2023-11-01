@@ -7,7 +7,7 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <>
-      <div className="my-3 flex flex-col">
+      <div className="flex flex-col">
         <TextGradient
           text={gradientText}
           from="from-cyan-900"
@@ -17,11 +17,11 @@ const Hero = () => {
         />
       </div>
 
-      <div className="flex flex-col gap-y-4 px-5 text-center text-base text-zinc-600">
+      <div className="flex flex-col items-center gap-y-3 px-5 text-center text-base text-zinc-600">
         <p className="text-xl font-medium dark:text-slate-200">
           Hi there! <span className="text-2xl">👋</span>
         </p>
-        <p className="text-lg font-medium dark:text-slate-200">
+        <p className="text-lg font-medium dark:text-slate-200 sm:w-[650px]">
           I&apos;m <span className="text-lg font-bold">Nicolas</span>, frontend
           developer from Argentina who loves to work with React and Next.js
         </p>
@@ -44,9 +44,10 @@ const Hero = () => {
           >
             Contact me
           </Button> */}
-          <p className="mt-3 text-xs font-medium dark:text-slate-200">
-            This site is under construction. Soon you&apos;ll be able to see details
-            of my work and work experience.
+          <p className="w-[300px] pt-2  text-xs font-medium dark:text-slate-200">
+            This site is under construction. Soon, you&apos;ll be able to see
+            details of my work experience and some posts about interesting stuff
+            🤗
           </p>
         </div>
       </div>

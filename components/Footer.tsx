@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <footer className="mt-auto flex flex-col gap-4 md:gap-10">
       <Marquee images={marqueeImages} />
-      <div className="flex items-center justify-center gap-4 border py-4">
+      <div className="flex items-center justify-center gap-4 border-t py-4">
         <p>Inspired by Vercel UI</p>
         <p>{year}</p>
         <div className="flex gap-3">

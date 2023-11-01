@@ -8,7 +8,8 @@ type MarqueeProps = {
 
 const Marquee: FC<MarqueeProps> = ({ images }) => {
   return (
-    <div className="relative flex flex-col overflow-x-hidden [mask-image:linear-gradient(to_right,_transparent_0%,_black_10%,_black_90%,_transparent_100%)]">
+    //  [mask-image:linear-gradient(to_right,_transparent_0%,_black_10%,_black_90%,_transparent_100%)]
+    <div className="relative flex flex-col overflow-x-hidden">
       {/* <ul className="flex animate-marquee items-center justify-center whitespace-nowrap py-12">
         {images.map((image) => (
           <li key={image}>
@@ -34,7 +35,7 @@ const Marquee: FC<MarqueeProps> = ({ images }) => {
         ))}
       </ul> */}
 
-      <ul className="flex items-center justify-center gap-1 whitespace-nowrap opacity-70 grayscale [mask-image:linear-gradient(to_right,_transparent_0%,_black_10%,_black_60%,_transparent_100%)]">
+      <ul className="flex items-center justify-center gap-1 whitespace-nowrap opacity-70 grayscale px-3">
         {images.map((image) => (
           <li key={image}>
             <Image
