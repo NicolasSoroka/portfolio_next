@@ -29,7 +29,7 @@ const Hero = () => {
         <div className="flex flex-col items-center justify-center gap-2">
           <Button className="w-[220px] shadow-lg transition-all hover:scale-105 hover:bg-slate-500 hover:text-cyan-100 dark:hover:bg-white dark:hover:text-black">
             <Link
-              href="/files/SorokaNicolas_cv.pdf"
+              href="/files/SorokaNicolas_fullstack.pdf"
               target="_blank"
               rel="noopener noreferrer"
               download
