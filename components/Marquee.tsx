@@ -3,54 +3,31 @@ import Image from "next/image";
 
 type MarqueeProps = {
   images: string[];
-  stopAnimation?: boolean;
 };
 
 const Marquee: FC<MarqueeProps> = ({ images }) => {
   return (
-    //  [mask-image:linear-gradient(to_right,_transparent_0%,_black_10%,_black_90%,_transparent_100%)]
-    <div className="relative flex flex-col overflow-x-hidden">
-      {/* <ul className="flex animate-marquee items-center justify-center whitespace-nowrap py-12">
-        {images.map((image) => (
-          <li key={image}>
+    <div
+      className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)]"
+    >
+      <div className="flex w-max animate-marquee items-center gap-10 py-8">
+        {/* Duplicate the list so scrolling loops seamlessly */}
+        {[...images, ...images].map((image, idx) => (
+          <div key={`${image}-${idx}`} className="flex-shrink-0">
             <Image
-              className={`${
-                image === "/assets/marquee/vercel_icon_dark.png" &&
-                "dark:invert"
-              }`}
+              className={
+                image === "/assets/marquee/vercel_icon_dark.png"
+                  ? "dark:invert"
+                  : ""
+              }
               src={image}
-              width={60}
-              height={60}
-              alt={`${image}`}
+              width={52}
+              height={52}
+              alt={image.split("/").pop()?.replace(/[._]/g, " ") ?? "tech logo"}
             />
-          </li>
+          </div>
         ))}
-      </ul>
-
-      <ul className="absolute top-0 flex animate-marquee2 items-center justify-center whitespace-nowrap py-12">
-        {images.map((image) => (
-          <li key={image}>
-            <Image src={image} width={60} height={60} alt={`${image}`} />
-          </li>
-        ))}
-      </ul> */}
-
-      <ul className="flex items-center justify-center gap-1 whitespace-nowrap opacity-70 grayscale px-3">
-        {images.map((image) => (
-          <li key={image}>
-            <Image
-              className={`${
-                image === "/assets/marquee/vercel_icon_dark.png" &&
-                "dark:invert"
-              }`}
-              src={image}
-              width={60}
-              height={60}
-              alt={`${image}`}
-            />
-          </li>
-        ))}
-      </ul>
+      </div>
     </div>
   );
 };
