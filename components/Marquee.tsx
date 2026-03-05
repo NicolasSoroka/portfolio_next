@@ -1,33 +1,73 @@
-import React, { FC } from "react";
+"use client";
+
+import React, { FC, useMemo } from "react";
 import Image from "next/image";
 
 type MarqueeProps = {
   images: string[];
+  speed?: number;
 };
 
-const Marquee: FC<MarqueeProps> = ({ images }) => {
+const ICON_SIZE = 52;
+const GAP = 40;
+
+const Marquee: FC<MarqueeProps> = ({ images, speed = 30 }) => {
+  // Repeat icons enough times so they fill well beyond the viewport
+  const repeats = 4;
+  const items = useMemo(
+    () => Array.from({ length: repeats }, () => images).flat(),
+    [images]
+  );
+
+  // Width of one full set of icons (one "repeats" worth = images.length)
+  const singleSetWidth = images.length * (ICON_SIZE + GAP);
+
   return (
     <div
-      className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)]"
+      className="relative overflow-hidden"
+      style={{
+        maskImage:
+          "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+        WebkitMaskImage:
+          "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+      }}
     >
-      <div className="flex w-max animate-marquee items-center gap-10 py-8">
-        {/* Duplicate the list so scrolling loops seamlessly */}
-        {[...images, ...images].map((image, idx) => (
+      <div
+        className="flex items-center will-change-transform"
+        style={{
+          gap: `${GAP}px`,
+          animation: `marquee-scroll ${singleSetWidth / speed}s linear infinite`,
+        }}
+      >
+        {items.map((image, idx) => (
           <div key={`${image}-${idx}`} className="flex-shrink-0">
             <Image
-              className={
+              className={`grayscale opacity-70 ${
                 image === "/assets/marquee/vercel_icon_dark.png"
                   ? "dark:invert"
                   : ""
-              }
+              }`}
               src={image}
-              width={52}
-              height={52}
-              alt={image.split("/").pop()?.replace(/[._]/g, " ") ?? "tech logo"}
+              width={ICON_SIZE}
+              height={ICON_SIZE}
+              alt={
+                image.split("/").pop()?.replace(/[._]/g, " ") ?? "tech logo"
+              }
             />
           </div>
         ))}
       </div>
+
+      <style jsx>{`
+        @keyframes marquee-scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-${singleSetWidth}px);
+          }
+        }
+      `}</style>
     </div>
   );
 };
